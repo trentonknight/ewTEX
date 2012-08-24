@@ -1,0 +1,36 @@
+#!/bin/bash 
+echo "SEMESTER LaTeX PREP"
+echo "This bash script is for creating organized directories "
+echo "for an eight week semester using the student's name, class"
+echo "and week of class. Each folder will contain a matching"
+echo "LaTeX tex file and BibTeX bib file. To begin enter the class"
+echo "name: ";
+read CLASS;
+echo "You submitted: $CLASS";
+echo "Enter your first two initials and last name in one string: "
+read youN
+echo "Make LaTeX directory for $CLASS in current directory?"
+pwd
+echo "Enter y/n and press [ENTER]: "; 
+read reply;
+if [ $reply = "y" ]; then
+mkdir -v -p  "$CLASS/"{WK1,WK2,WK3,WK4,WK5,WK6,WK7,WK8};
+echo "Paste full path to a tex document which will be used as a template."
+echo "For example \home\texCrazyGuy\Documents\MyTemplate.tex"
+echo "Paste and the hit [ENTER]: "
+read template
+week=1 
+while [ $week -le 8 ]
+do
+touch "$CLASS/WK$week/$youN-$CLASS-WK$week.tex"
+touch "$CLASS/WK$week/$youN-$CLASS-WK$week.bib"
+cat $template >> "$CLASS/WK$week/$youN-$CLASS-WK$week.tex"
+week=$(($week + 1))
+done
+echo "Here are your new fancy LaTeX ready subdirectories: "
+ls -R $CLASS
+else 
+echo "Quitting without making directory...";
+fi
+
+
