@@ -14,7 +14,7 @@ pwd
 echo "Enter y/n and press [ENTER]: "; 
 read reply;
 if [ $reply = "y" ]; then
-mkdir -v -p  "$CLASS/"{WK1,WK2,WK3,WK4,WK5,WK6,WK7,WK8};
+mkdir -v -p  "$CLASS/"{WK1/{Post1,Post2,Post3,Post4,Essay},WK2/{Post1,Post2,Post3,Post4,Essay},WK3/{Post1,Post2,Post3,Post4,Essay},WK4/{Post1,Post2,Post3,Post4,Essay},WK5/{Post1,Post2,Post3,Post4,Essay},WK6/{Post1,Post2,Post3,Post4,Essay},WK7/{Post1,Post2,Post3,Post4,Essay},WK8/{Post1,Post2,Post3,Post4,Essay}};
 echo "Paste full path to a tex document which will be used as a template."
 echo "For example \home\texCrazyGuy\Documents\MyTemplate.tex"
 echo "Paste and the hit [ENTER]: "
@@ -22,9 +22,16 @@ read template
 week=1 
 while [ $week -le 8 ]
 do
-touch "$CLASS/WK$week/$youN-$CLASS-WK$week.tex"
-touch "$CLASS/WK$week/$youN-$CLASS-WK$week.bib"
-cat $template >> "$CLASS/WK$week/$youN-$CLASS-WK$week.tex"
+touch "$CLASS/WK$week/Post1/$youN-$CLASS-WK$week-Post1.bib"
+cat $template >> "$CLASS/WK$week/Post1/$youN-$CLASS-WK$week-Post1.tex"
+touch "$CLASS/WK$week/Post2/$youN-$CLASS-WK$week-Post2.bib"
+cat $template >> "$CLASS/WK$week/Post2/$youN-$CLASS-WK$week-Post2.tex"
+touch "$CLASS/WK$week/Post3/$youN-$CLASS-WK$week-Post3.bib"
+cat $template >> "$CLASS/WK$week/Post3/$youN-$CLASS-WK$week-Post3.tex"
+touch "$CLASS/WK$week/Post4/$youN-$CLASS-WK$week-Post4.bib"
+cat $template >> "$CLASS/WK$week/Post4/$youN-$CLASS-WK$week-Post4.tex"
+touch "$CLASS/WK$week/Essay/$youN-$CLASS-WK$week-Essay.bib"
+cat $template >> "$CLASS/WK$week/Essay/$youN-$CLASS-WK$week-Essay.tex"
 week=$(($week + 1))
 done
 echo "Here are your new fancy LaTeX ready subdirectories: "
