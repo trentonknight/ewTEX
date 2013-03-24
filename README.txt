@@ -6,7 +6,7 @@ One file for a LaTeX document and one for BibTeX. The script will ask you for yo
 
 Add or remove directories from the below in the script, change dir names and so forth:
 
-mkdir -v -p  "$CLASS/"{WK1,WK2,WK3,WK4,WK5,WK6,WK7,WK8};
+mkdir -v -p  "$CLASS/"{WK1/{Post1,Post2,Post3,Post4,Essay},WK2/{Post1,Post2,Post3,Post4,Essay},WK3/{Post1,Post2,Post3,Post4,Essay},WK4/{Post1,Post2,Post3,Post4,Essay},WK5/{Post1,Post2,Post3,Post4,Essay},WK6/{Post1,Post2,Post3,Post4,Essay},WK7/{Post1,Post2,Post3,Post4,Essay},WK8/{Post1,Post2,Post3,Post4,Essay}};
 
 Don't forget to change the increments in the while loop:
 
